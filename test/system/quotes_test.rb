@@ -6,6 +6,10 @@ class QuotesTest < ApplicationSystemTestCase
     @quote = Quote.ordered.first
   end
 
+  test "#total_price returns the sum of the total price of all line items" do
+    assert_equal 2500, quotes(:first).total_price
+  end
+  
   test "Showing a quote" do
     visit quotes_path
     click_link @quote.name
